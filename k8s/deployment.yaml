@@ -16,6 +16,6 @@ spec:
       containers:
       - name: custom-cicd-test-2
        
-        image: ghcr.io/aeskerminen/custom-cicd-test-2:6f7149f03953c90ee4be6810280519d3d395a03c
+        image: ghcr.io/aeskerminen/custom-cicd-test-2:113befefb9f5392e487d31b0aee8627839c00168
         ports:
         - containerPort: 8080
