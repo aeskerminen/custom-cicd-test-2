@@ -1,0 +1,21 @@
+# k8s/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: custom-cicd-test-2 
+spec:
+  replicas: 2 
+  selector:
+    matchLabels:
+      app: custom-cicd-test-2
+  template:
+    metadata:
+      labels:
+        app: custom-cicd-test-2
+    spec:
+      containers:
+      - name: custom-cicd-test-2
+       
+        image: ghcr.io/aeskerminen/custom-cicd-test-2:6f7149f03953c90ee4be6810280519d3d395a03c
+        ports:
+        - containerPort: 80
