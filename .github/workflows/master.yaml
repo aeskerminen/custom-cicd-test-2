@@ -12,8 +12,38 @@ on:
       - 'package.json'
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '23'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Start app (background)
+        run: npm run dev &
+        env:
+          NODE_ENV: test
+
+      - name: Wait for app to start
+        run: npx wait-on http://localhost:8080
+
+      - name: Run Cypress tests
+        uses: cypress-io/github-action@v6
+        with:
+          start: npm run dev
+          wait-on: http://localhost:8080
+          
   build-and-update-manifest:
     runs-on: self-hosted 
+    needs: test
 
     steps:
       - name: Check out code
