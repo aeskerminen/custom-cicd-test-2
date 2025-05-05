@@ -18,4 +18,4 @@ spec:
        
         image: ghcr.io/aeskerminen/custom-cicd-test-2:6f7149f03953c90ee4be6810280519d3d395a03c
         ports:
-        - containerPort: 80
+        - containerPort: 8080
