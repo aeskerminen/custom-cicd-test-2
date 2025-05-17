@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-      <h1 data-testid="cypress-heading">Cypress</h1>
+      <h1 data-testid="cypress-heading">GIGACHAD</h1>
       <div className="card">
         <button data-testid="cypress-button" onClick={() => setCount((count) => count + 1)}>
           count is <span data-testid="cypress-button-count">{count}</span>
